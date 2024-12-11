@@ -1,0 +1,35 @@
+@startuml CakeOrderingSystem
+
+class Kolac {
+    - naziv: str
+    - kalorije: float
+    - cena: float
+    + get_kalorije(): float
+    + get_cena(): float
+    + opis(): str
+}
+
+abstract class SastojakDecorator {
+    - kolac: Kolac
+    + get_kalorije(): float
+    + get_cena(): float
+    + opis(): str
+}
+
+class TestoCokolada {
+    + get_kalorije(): float
+    + get_cena(): float
+    + opis(): str
+}
+
+class PrelivJagoda {
+    + get_kalorije(): float
+    + get_cena(): float
+    + opis(): str
+}
+
+Kolac <|-- SastojakDecorator
+SastojakDecorator <|-- TestoCokolada
+SastojakDecorator <|-- PrelivJagoda
+
+@enduml
